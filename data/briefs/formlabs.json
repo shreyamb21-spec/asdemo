@@ -1,0 +1,124 @@
+{
+  "slug": "formlabs",
+  "companyName": "Formlabs",
+  "domain": "formlabs.com",
+  "vertical": "Consumer & Pro Hardware",
+  "icpBlurb": "Boston-based 3D printer maker shipping at volume: one respin on a high-volume board is a margin event, and a large EE team means review throughput matters.",
+  "snapshot": [
+    "Designs and manufactures professional SLA/SLS 3D printers for engineering, medical, dental use.",
+    "Ships printer hardware alongside PreForm software, materials, and factory automation solutions."
+  ],
+  "teamSignal": {
+    "stat": "Hiring",
+    "label": "Open roles in Engineering & Product plus 4 other team areas"
+  },
+  "compliance": [
+    {
+      "badge": "FDA",
+      "note": "Sells biocompatible medical and dental devices (Form 4B Medical, Form 4BL Medical), implying FDA-regulated manufacturing."
+    },
+    {
+      "badge": "ISO 9001",
+      "note": "General quality management standard typically expected of a precision hardware manufacturer serving automotive, aerospace, and medical clients."
+    }
+  ],
+  "toolchain": [
+    {
+      "tool": "PreForm (in-house software)",
+      "confidence": "confirmed",
+      "sourceQuote": "Software PreForm Dashboard Developer Platform",
+      "sourceUrl": "https://formlabs.com/careers"
+    },
+    {
+      "tool": "CAD/CAM design software",
+      "confidence": "inferred",
+      "sourceQuote": "No ECAD tool is named publicly; inferred from precision electromechanical printers (Form 4, Fuse X1) requiring CAD/ECAD design tooling.",
+      "sourceUrl": "https://formlabs.com/careers"
+    }
+  ],
+  "hypotheses": [
+    {
+      "title": "FDA audit trails for biocompatible medical devices",
+      "icon": "compliance",
+      "confidence": "high",
+      "evidence": "Formlabs sells biocompatible medical/dental devices (Form 4B Medical, Form 4BL Medical), which implies FDA-regulated design controls requiring documented review and sign-off history. AllSpice's PR-style sign-offs and audit trails map directly to this need for traceable design change records across electronics/hardware revisions feeding these devices.",
+      "sourceUrl": "https://formlabs.com"
+    },
+    {
+      "title": "Hardware-firmware coordination across printer product lines",
+      "icon": "handoff",
+      "confidence": "medium",
+      "evidence": "Formlabs ships complex electromechanical hardware (Form 4, Fuse X1, Form Auto) alongside PreForm software and a Developer Platform, meaning PCB/electrical engineering teams must coordinate revisions with firmware and software teams. Visual diffs and cross-team review flows would reduce miscommunication between hardware and embedded/software engineers during product development cycles.",
+      "sourceUrl": "https://formlabs.com"
+    },
+    {
+      "title": "Costly respins across multiple concurrent printer platforms",
+      "icon": "respin",
+      "confidence": "medium",
+      "evidence": "Formlabs simultaneously develops and iterates on multiple SLA/SLS printer lines (Form 4, Form 4L, Fuse 1+, Fuse X1) plus post-processing hardware, increasing risk of costly board or design-level errors slipping through without rigorous review. AllSpice's automated checks on every revision and grounded AI design review (DRCY) could catch issues before physical prototyping, reducing expensive hardware respins across this broad product portfolio.",
+      "sourceUrl": "https://formlabs.com"
+    }
+  ],
+  "questions": [
+    {
+      "text": "Walk me through what happens when a board respin is needed.",
+      "hypothesisIndex": 2
+    },
+    {
+      "text": "How many printer platforms are actively in hardware development right now?",
+      "hypothesisIndex": 2
+    },
+    {
+      "text": "What happens when a PCB revision requires a firmware update?",
+      "hypothesisIndex": 1
+    },
+    {
+      "text": "How do hardware and software teams currently share design changes?",
+      "hypothesisIndex": 1
+    },
+    {
+      "text": "How do you document design reviews for FDA-regulated medical printers?",
+      "hypothesisIndex": 0
+    },
+    {
+      "text": "What would an auditor expect to see in your design history?",
+      "hypothesisIndex": 0
+    },
+    {
+      "text": "How many hours weekly go into manual design review before fabrication?",
+      "hypothesisIndex": 2
+    }
+  ],
+  "storyline": [
+    {
+      "step": "Show live PCB revision diff",
+      "capability": "Visual schematic diffing"
+    },
+    {
+      "step": "Catch DRC error pre-fabrication",
+      "capability": "Automated design checks"
+    },
+    {
+      "step": "Sync PCB change to firmware repo",
+      "capability": "Cross-team PR workflow"
+    },
+    {
+      "step": "Pull full design audit trail",
+      "capability": "Compliance sign-off history"
+    }
+  ],
+  "roiDefaults": {
+    "respinsPerYear": 6,
+    "costPerRespin": 85000,
+    "reviewHoursPerWeek": 8,
+    "engineerCount": 45
+  },
+  "sources": [
+    "https://formlabs.com",
+    "https://formlabs.com/careers",
+    "https://formlabs.com/jobs",
+    "https://careers.formlabs.com/"
+  ],
+  "generatedAt": "2026-07-15T23:13:01.214Z",
+  "mode": "prebaked"
+}

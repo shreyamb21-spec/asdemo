@@ -1,0 +1,126 @@
+{
+  "slug": "skydio",
+  "companyName": "Skydio",
+  "domain": "skydio.com",
+  "vertical": "Defense & Drones",
+  "icpBlurb": "US drone maker with defense contracts: ITAR means every design review needs an audit trail, and rapid iteration makes respin costs compound.",
+  "snapshot": [
+    "Designs and manufactures autonomous drones for defense, public safety, and inspection.",
+    "Ships US-assembled drone hardware, docks, and autonomy software at scale."
+  ],
+  "teamSignal": {
+    "stat": "4",
+    "label": "Hardware-focused departments hiring (HW, Mfg, Mfg Eng, Supply Chain)"
+  },
+  "compliance": [
+    {
+      "badge": "ITAR",
+      "note": "Serves US national security, border security, and military customers with domestically controlled supply chain."
+    }
+  ],
+  "toolchain": [
+    {
+      "tool": "Altium or similar ECAD",
+      "confidence": "inferred",
+      "sourceQuote": "a product stack spanning AI and robotics software, cameras and optics, complex electro-mechanical systems, connectivity, cloud, mobile, aerodynamics, and more",
+      "sourceUrl": "https://skydio.com/careers"
+    },
+    {
+      "tool": "Git (firmware & autonomy)",
+      "confidence": "inferred",
+      "sourceQuote": "Autonomy Engineer - Deep Learning Infrastructure... Software Engineer - Autonomy Infrastructure, Systems and Tools",
+      "sourceUrl": "https://skydio.com/careers"
+    },
+    {
+      "tool": "Cloud simulation / CI",
+      "confidence": "inferred",
+      "sourceQuote": "Software Engineer - Cloud Simulation & Full-Stack",
+      "sourceUrl": "https://skydio.com/careers"
+    }
+  ],
+  "hypotheses": [
+    {
+      "title": "ITAR audit trail for hardware design changes",
+      "icon": "compliance",
+      "confidence": "high",
+      "evidence": "Skydio explicitly serves national security and border security customers under an ITAR-controlled, domestically-built supply chain ('Designed, assembled, and supported in the USA... supply chain meets the highest standards of national security'). Proving who approved every schematic/layout revision and when is a compliance necessity, not a nice-to-have, which is exactly what AllSpice's PR-style sign-offs and audit trails provide.",
+      "sourceUrl": "https://skydio.com"
+    },
+    {
+      "title": "Slow cross-discipline design reviews at scale",
+      "icon": "review",
+      "confidence": "high",
+      "evidence": "Skydio's product stack spans 'AI and robotics software, cameras and optics, complex electro-mechanical systems, connectivity, cloud, mobile, aerodynamics' with 4 hardware-focused departments hiring simultaneously (Hardware, Manufacturing, Manufacturing Engineering, Supply Chain). Coordinating schematic/layout/BOM review across that many disciplines and open reqs is a natural fit for AllSpice's visual diff and PR-style review workflow.",
+      "sourceUrl": "https://skydio.com"
+    },
+    {
+      "title": "Manufacturing respins risk US-assembly cost/scale",
+      "icon": "respin",
+      "confidence": "medium",
+      "evidence": "Skydio has shipped over 60,000 drones with '9 figures of annual revenue with rapid growth' and is actively hiring Manufacturing Engineering roles, meaning any BOM or layout error propagates across a large US-based assembly line. Automation on every revision plus DRCY's grounded review could catch design errors before they trigger costly hardware respins at this production volume.",
+      "sourceUrl": "https://skydio.com"
+    }
+  ],
+  "questions": [
+    {
+      "text": "Walk me through how a schematic or layout change gets reviewed today.",
+      "hypothesisIndex": 1
+    },
+    {
+      "text": "How do you coordinate design reviews across electrical, mechanical, and firmware teams?",
+      "hypothesisIndex": 1
+    },
+    {
+      "text": "Who signs off on ECAD changes before they move to manufacturing?",
+      "hypothesisIndex": 0
+    },
+    {
+      "text": "How do you currently prove to auditors who approved a specific revision?",
+      "hypothesisIndex": 0
+    },
+    {
+      "text": "Can you describe a recent respin, what caused it and what it cost?",
+      "hypothesisIndex": 2
+    },
+    {
+      "text": "What catches BOM or layout errors before they reach the assembly line?",
+      "hypothesisIndex": 2
+    },
+    {
+      "text": "How many engineering hours per week go into manual design reviews?",
+      "hypothesisIndex": 1
+    }
+  ],
+  "storyline": [
+    {
+      "step": "Show side-by-side schematic diff",
+      "capability": "Visual ECAD diffing"
+    },
+    {
+      "step": "Open PR-style review thread",
+      "capability": "PR-based design review"
+    },
+    {
+      "step": "Pull full revision approval history",
+      "capability": "Audit trail & sign-offs"
+    },
+    {
+      "step": "Run automated design rule check",
+      "capability": "Automated DRC checks"
+    }
+  ],
+  "roiDefaults": {
+    "respinsPerYear": 4,
+    "costPerRespin": 120000,
+    "reviewHoursPerWeek": 8,
+    "engineerCount": 50
+  },
+  "sources": [
+    "https://skydio.com",
+    "https://skydio.com/careers",
+    "https://skydio.com/jobs",
+    "https://skydio.com/about"
+  ],
+  "generatedAt": "2026-07-15T23:10:21.828Z",
+  "mode": "prebaked"
+}

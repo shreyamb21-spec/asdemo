@@ -1,0 +1,119 @@
+{
+  "slug": "butterfly-network",
+  "companyName": "Butterfly Network",
+  "domain": "butterflynetwork.com",
+  "vertical": "Medical Devices",
+  "icpBlurb": "FDA-regulated handheld ultrasound: design history files are mandatory, so traceable reviews are a regulatory requirement, not a nice-to-have.",
+  "snapshot": [
+    "Builds handheld whole-body ultrasound probes using proprietary Ultrasound-on-Chip semiconductor tech.",
+    "Ships FDA-cleared iQ3/iQ+ devices plus AI software to 145,000+ global customers."
+  ],
+  "teamSignal": {
+    "stat": "Hiring",
+    "label": "Open roles across hardware, firmware, and clinical engineering"
+  },
+  "compliance": [
+    {
+      "badge": "FDA",
+      "note": "Devices explicitly described as FDA-cleared for external ultrasound imaging."
+    },
+    {
+      "badge": "IEC 62304",
+      "note": "Standard applies given embedded medical device software (AI-driven imaging, Compass AI) though not explicitly named in text."
+    }
+  ],
+  "toolchain": [
+    {
+      "tool": "ASIC / semiconductor EDA tools",
+      "confidence": "inferred",
+      "sourceQuote": "We put ultrasound on a chip and created the world's first handheld whole-body imager. — implies in-house chip design requiring ASIC/semiconductor design tools.",
+      "sourceUrl": "https://butterflynetwork.com/careers"
+    },
+    {
+      "tool": "Embedded firmware toolchain",
+      "confidence": "inferred",
+      "sourceQuote": "Butterfly's Ultrasound-on-Chip technology... connects to a compatible iPhone or Android smartphone — implies firmware bridging custom silicon to mobile software.",
+      "sourceUrl": "https://butterflynetwork.com/careers"
+    }
+  ],
+  "hypotheses": [
+    {
+      "title": "Fragile audit trails for FDA-regulated firmware changes",
+      "icon": "compliance",
+      "confidence": "high",
+      "evidence": "Butterfly's iQ3/iQ+ are explicitly FDA-cleared medical devices with embedded AI software (Compass AI), which falls under IEC 62304 traceability requirements. Without a version-controlled, sign-off-driven review process, proving design change history for FDA audits becomes a manual, error-prone burden.",
+      "sourceUrl": "https://butterflynetwork.com"
+    },
+    {
+      "title": "Costly re-spins on proprietary Ultrasound-on-Chip ASIC",
+      "icon": "respin",
+      "confidence": "high",
+      "evidence": "The company states 'We put ultrasound on a chip and created the world's first handheld whole-body imager,' implying custom semiconductor design where a layout error is extremely expensive to fix post-tapeout. Visual diffing across schematic/layout revisions would catch these issues before an ASIC re-spin is committed.",
+      "sourceUrl": "https://butterflynetwork.com"
+    },
+    {
+      "title": "Disjointed hardware-firmware-clinical handoffs",
+      "icon": "handoff",
+      "confidence": "high",
+      "evidence": "Butterfly's careers page lists open roles spanning hardware, firmware, and clinical engineering, and their product connects custom silicon to iPhone/Android software (iQ3, iQ+, Bladder, Vet, Move variants). Coordinating design reviews and sign-offs across these disciplines and product lines without a PR-style workflow risks miscommunication on safety-critical changes.",
+      "sourceUrl": "https://butterflynetwork.com"
+    }
+  ],
+  "questions": [
+    {
+      "text": "How do hardware, firmware, and clinical teams coordinate on design reviews today?",
+      "hypothesisIndex": 2
+    },
+    {
+      "text": "Walk me through what happens when a schematic or layout error surfaces late.",
+      "hypothesisIndex": 1
+    },
+    {
+      "text": "How many ASIC re-spins have you had this year, and what caused them?",
+      "hypothesisIndex": 1
+    },
+    {
+      "text": "What happens when a firmware update affects an already-cleared hardware revision?",
+      "hypothesisIndex": 2
+    },
+    {
+      "text": "How do you currently track and prove design change history for FDA audits?",
+      "hypothesisIndex": 0
+    },
+    {
+      "text": "How much engineering time weekly goes into manual sign-off tracking or audit prep?",
+      "hypothesisIndex": 0
+    }
+  ],
+  "storyline": [
+    {
+      "step": "Visual diff of chip schematic revision",
+      "capability": "Schematic/layout visual diffing"
+    },
+    {
+      "step": "Pull request review on firmware change",
+      "capability": "Git-based PR workflow"
+    },
+    {
+      "step": "Cross-team sign-off, hardware to clinical",
+      "capability": "Multi-team review approvals"
+    },
+    {
+      "step": "Auto-generated audit trail for FDA",
+      "capability": "Traceable version history"
+    }
+  ],
+  "roiDefaults": {
+    "respinsPerYear": 3,
+    "costPerRespin": 180000,
+    "reviewHoursPerWeek": 6,
+    "engineerCount": 30
+  },
+  "sources": [
+    "https://butterflynetwork.com",
+    "https://butterflynetwork.com/careers",
+    "https://butterflynetwork.com/about"
+  ],
+  "generatedAt": "2026-07-15T23:12:05.529Z",
+  "mode": "prebaked"
+}
