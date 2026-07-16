@@ -11,9 +11,11 @@ interface GatewayResponse {
 }
 
 async function callGateway(prompt: string, signal?: AbortSignal): Promise<string> {
-  const baseUrl = process.env.MERGE_GATEWAY_BASE_URL;
-  const apiKey = process.env.MERGE_GATEWAY_API_KEY;
-  const model = process.env.MERGE_GATEWAY_MODEL;
+  // trim() also strips a leading BOM (U+FEFF), which sneaks in when env
+  // values are piped through Windows shells.
+  const baseUrl = process.env.MERGE_GATEWAY_BASE_URL?.trim();
+  const apiKey = process.env.MERGE_GATEWAY_API_KEY?.trim();
+  const model = process.env.MERGE_GATEWAY_MODEL?.trim();
   if (!baseUrl || !apiKey || !model) {
     throw new Error("Merge Gateway env vars are not configured");
   }
