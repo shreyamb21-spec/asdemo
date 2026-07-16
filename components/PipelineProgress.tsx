@@ -31,19 +31,27 @@ export function PipelineProgress({
           <div
             key={label}
             className={cn(
-              "flex items-center gap-3 rounded-md px-2 py-1.5 text-sm transition-colors",
-              state === "pending" && "text-muted-foreground/50",
-              state === "error" && "bg-amber-50 text-amber-800"
+              "flex items-center gap-3 rounded-[4px] px-2 py-1.5 text-sm transition-colors duration-150",
+              state === "pending" && "text-dim",
+              state === "done" && "text-muted-foreground",
+              state === "running" && "text-foreground",
+              state === "error" && "bg-tag text-foreground"
             )}
           >
             <span className="flex size-5 items-center justify-center">
               {state === "running" && (
-                <Loader2 className="size-4 animate-spin text-primary" />
+                <Loader2 className="size-4 animate-spin text-foreground" strokeWidth={1.5} />
               )}
-              {state === "done" && <Check className="size-4 text-primary" />}
-              {state === "error" && <AlertTriangle className="size-4 text-amber-600" />}
+              {state === "done" && (
+                <span className="flex size-4.5 items-center justify-center rounded-full bg-tag">
+                  <Check className="size-3 text-foreground" strokeWidth={2} />
+                </span>
+              )}
+              {state === "error" && (
+                <AlertTriangle className="size-4 text-foreground" strokeWidth={1.5} />
+              )}
               {state === "pending" && (
-                <span className="size-1.5 rounded-full bg-muted-foreground/30" />
+                <span className="size-1.5 rounded-full bg-dim/50" />
               )}
             </span>
             <span>{label}</span>
@@ -51,10 +59,15 @@ export function PipelineProgress({
         );
       })}
       {errorMessage && (
-        <div className="mt-2 flex items-center justify-between gap-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+        <div className="mt-2 flex items-center justify-between gap-3 rounded-[4px] border border-border-strong bg-tag px-3 py-2 text-sm text-foreground">
           <span>{errorMessage}</span>
           {onRetry && (
-            <Button size="sm" variant="outline" onClick={onRetry} className="shrink-0">
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={onRetry}
+              className="shrink-0 rounded-[4px] border-foreground text-foreground"
+            >
               Retry
             </Button>
           )}

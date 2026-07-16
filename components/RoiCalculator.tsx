@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Brief } from "@/lib/types";
 import { computeRoi, formatUsd, formatUsdFull, ROI_ASSUMPTIONS } from "@/lib/roi";
+import { EYEBROW } from "@/lib/theme";
+import { cn } from "@/lib/utils";
 
 // Log-ish steps for cost per respin, $10K-$500K
 const COST_STEPS = [
@@ -65,8 +67,10 @@ function SliderRow({
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-baseline justify-between text-sm">
-        <span className="text-muted-foreground">{label}</span>
-        <span className="font-medium tabular-nums">{valueLabel}</span>
+        <span className="text-body">{label}</span>
+        <span className="font-mono text-xs text-muted-foreground tabular-nums">
+          {valueLabel}
+        </span>
       </div>
       <Slider
         value={[value]}
@@ -97,10 +101,8 @@ export function RoiCalculator({ defaults }: { defaults: Brief["roiDefaults"] }) 
 
   return (
     <section>
-      <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-        Respin ROI calculator
-      </h2>
-      <div className="grid gap-8 rounded-lg border bg-card p-6 md:grid-cols-2">
+      <h2 className={cn("mb-2", EYEBROW)}>ROI</h2>
+      <div className="grid gap-8 rounded-lg border bg-alt p-6 md:grid-cols-2">
         <div className="flex flex-col gap-5">
           <SliderRow
             label="Respins per year"
@@ -137,19 +139,17 @@ export function RoiCalculator({ defaults }: { defaults: Brief["roiDefaults"] }) 
         </div>
 
         <div className="flex flex-col justify-center gap-1 md:pl-4">
-          <span className="text-sm text-muted-foreground">
-            Estimated annual cost of the status quo:{" "}
-            <span className="font-medium text-foreground tabular-nums">
-              {formatUsdFull(roi.statusQuoCost)}
-            </span>
+          <span className={EYEBROW}>
+            Estimated annual cost of the status quo
           </span>
-          <span className="mt-2 text-sm text-muted-foreground">Estimated annual savings</span>
-          <span className="text-5xl font-semibold tracking-tight text-primary tabular-nums">
+          <span className="font-mono text-sm text-muted-foreground tabular-nums">
+            {formatUsdFull(roi.statusQuoCost)}
+          </span>
+          <span className={cn("mt-4", EYEBROW)}>Estimated annual savings</span>
+          <span className="font-display text-[56px] font-bold leading-none text-foreground tabular-nums">
             {formatUsdFull(savings)}
           </span>
-          <p className="mt-3 text-xs leading-snug text-muted-foreground/80">
-            {ROI_ASSUMPTIONS}
-          </p>
+          <p className="mt-3 text-xs leading-snug text-dim">{ROI_ASSUMPTIONS}</p>
         </div>
       </div>
     </section>

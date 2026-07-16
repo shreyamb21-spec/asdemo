@@ -109,15 +109,17 @@ export default function LandingPage() {
   const showPipeline = running || error !== undefined;
 
   return (
-    <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-16">
-      <div className="text-center">
-        <h1 className="text-3xl font-semibold tracking-tight">Discovery Copilot</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+    <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 pb-16 pt-24">
+      <div className="text-left">
+        <h1 className="font-display text-4xl font-semibold text-foreground">
+          Discovery Copilot
+        </h1>
+        <p className="mt-3 text-sm text-muted-foreground">
           Pre-call briefs for AllSpice SEs. Grounded in public sources.
         </p>
       </div>
 
-      <div className="mx-auto mt-8 w-full max-w-xl">
+      <div className="mt-10 w-full max-w-xl">
         {showPipeline ? (
           <PipelineProgress
             states={states}
@@ -167,7 +169,7 @@ export default function LandingPage() {
 
       {cached.length > 0 && (
         <>
-          <h2 className="mt-10 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+          <h2 className="mt-10 font-mono text-[11px] uppercase tracking-[0.08em] text-dim">
             Your live briefs
           </h2>
           <div className="mt-3 grid gap-4 sm:grid-cols-3">
@@ -182,7 +184,7 @@ export default function LandingPage() {
         </>
       )}
 
-      <footer className="mt-auto pt-16 text-center text-xs text-muted-foreground">
+      <footer className="mt-auto pt-16 text-center font-mono text-[11px] text-dim">
         Built by Shreyam Borah. Every claim links to its source.
       </footer>
     </main>

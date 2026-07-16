@@ -6,14 +6,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ExternalLink } from "lucide-react";
 
 export function SourcesFooter({ sources }: { sources: string[] }) {
   return (
     <section className="rounded-lg border bg-card px-4">
       <Accordion type="single" collapsible>
         <AccordionItem value="sources" className="border-b-0">
-          <AccordionTrigger className="py-3 text-sm text-muted-foreground hover:no-underline">
+          <AccordionTrigger className="py-3 font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground hover:no-underline">
             Sources ({sources.length})
           </AccordionTrigger>
           <AccordionContent>
@@ -24,9 +23,8 @@ export function SourcesFooter({ sources }: { sources: string[] }) {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+                    className="break-all text-[13px] text-foreground underline underline-offset-2"
                   >
-                    <ExternalLink className="size-3 shrink-0" />
                     {url}
                   </a>
                 </li>
